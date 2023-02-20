@@ -130,17 +130,6 @@ func invest () = {
                                 }
     }
 
-
-
-@Callable(i)
-func adminV (Value:Int,address:String,assetId:String) = if (if ((i.caller == this))
-    then true
-    else (i.caller == Address(getBinaryValue(this, "admin"))))
-    then [ScriptTransfer(Address(fromBase58String(address)), Value, fromBase58String(assetId))]
-    else throw(adminError)
-
-
-
 @Callable(i)
 func time (presaleStart:Int,presaleDuration:Int,distributionDuration:Int) = if (if ((i.caller == this))
     then true
